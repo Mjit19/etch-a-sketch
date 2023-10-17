@@ -1,20 +1,24 @@
 // Create 16x16 grid square divs
 // Put them inside container div
 
-// Create rows of grid
 const container = document.querySelector('#container');
-generateDiv(container);
-
-// Create Cells for each row
-const divContainerList = document.querySelectorAll('#container > div');
-divContainerList.forEach(generateDiv);
+generateGrid(container, 16);
 
 
 
 
-function generateDiv(parent) {
-    for (let i = 0; i < 16; i++) {
+
+function generateGrid(parent, n) {
+    // Create rows of grid
+    for (let i = 0; i < n; i++) {
         parent.appendChild(document.createElement('div')); 
     }
+    // Create Cells for each row
+    const divContainerList = document.querySelectorAll('#container > div');
+    divContainerList.forEach(div => {
+        for (let j = 0; j < n; j++) {
+            div.appendChild(document.createElement('div')); 
+        }
+    });
 }
 
