@@ -16,7 +16,7 @@
     cursor: pointer;
 }
 
-#container div div:hover {
+.cell {
     background-color: black;
 }
 

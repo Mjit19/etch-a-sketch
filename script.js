@@ -1,7 +1,5 @@
-// Create 16x16 grid square divs
-// Put them inside container div
-
 let container = document.querySelector('#container');
+
 generateGrid(container, 16);
 
 const btn = document.querySelector('button');
@@ -23,10 +21,16 @@ function generateGrid(parent, n) {
     }
     // Create Cells for each row
     let divContainerList = document.querySelectorAll('#container > div');
-    divContainerList.forEach(div => {
+    divContainerList.forEach(divContainer => {
         for (let j = 0; j < n; j++) {
-            div.appendChild(document.createElement('div')); 
+            divContainer.appendChild(document.createElement('div')); 
         }
     });
+    // Change cell class so that it's colored
+    let cells = document.querySelectorAll('#container > div > div');
+    cells.forEach(cell => {
+        cell.addEventListener('mouseover', () => {
+            cell.classList.add('cell');
+        });
+    });
 }
-
